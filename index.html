@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adam Morrell - Developer Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header, .section {
+      width: 100%;
+      max-width: 900px;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header {
+      background-color: #111;
+      border-bottom: 1px solid #222;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: #00ff99;
+      margin-top: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #00ff99;
+      margin-bottom: 2rem;
+    }
+
+    .project {
+      margin-bottom: 3rem;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-desc {
+      color: #bbb;
+      margin-bottom: 1rem;
+    }
+
+    .gif-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gif-row img {
+      width: 360px;
+      height: 204px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
+    }
+
+    .plugin-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #00ff99;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .plugin-link:hover {
+      background: #00cc80;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+    }
+
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #00ff99;
+      border-radius: 4px;
+    }
+
+    .carousel img {
+      width: 240px;
+      height: 144px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 700px) {
+      .gif-row img {
+        width: 100%;
+        height: auto;
+      }
+
+      .carousel img {
+        height: 100px;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header style="text-align: center;">
+  <div>
+    <h1>Adam Morrell</h1>
+    <h2>Unreal Developer • Full Stack • Optimization Specialist</h2>
+    <p>11 years in IT · 6 in Development · Unreal Engine · C++ & C# · Plugins · Desktop/Mobile/Oculus </p>
+  </div>
+  <img src="photos/me.gif" alt="Adam Morrell" style="margin-top: 1rem; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #00ff99;">
+</header>
+
+<section class="section">
+  <div style="margin-top: -2rem;">
+    <p style="font-size: 1.1rem;">
+      Contact Me:
+      <a href="https://www.linkedin.com/in/adam-morrell-91302a78" target="_blank" style="color: #00ff99; text-decoration: none; font-weight: 600;">
+        LinkedIn
+      </a>
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Highlight Projects</div>
+
+  <div class="project">
+    <div class="project-title">Vandals (Lead Developer)</div>
+    <p class="project-desc">
+      A Quest VR 10-chapter interactive story built for academic research. I built the quest manager and tightly optimized it for standalone VR.
+    </p>
+    <div class="gif-row">
+      <img src="photos/vandals1.gif" alt="Vandals GIF 1">
+      <img src="photos/vandals2.gif" alt="Vandals GIF 2">
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">Planta Theta (Lead Developer)</div>
+    <p class="project-desc">
+      Fully-featured VR dating app (App Labs-ready). Delivered on time, packed with systems. Though unreleased by our partners, our dev work was a win.
+    </p>
+    <div class="gif-row">
+      <img src="photos/planta1.gif" alt="Planta Theta GIF 1">
+      <img src="photos/planta2.gif" alt="Planta Theta GIF 2">
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-title">Ages of Cataria (Systems Developer)</div>
+    <p class="project-desc">
+      Built core simulation logic post-Kickstarter. Designed AI scheduling, village tasks, and deep system interconnects for the game’s demo.
+    </p>
+    <div class="gif-row">
+      <img src="photos/cataria1.gif" alt="Ages of Cataria GIF 1">
+      <img src="photos/cataria2.gif" alt="Ages of Cataria GIF 2">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Plugins</div>
+  <p>Hand-built tools to boost productivity and engine power. Trusted by developers, shipped via Fab.</p>
+  <a class="plugin-link" href="https://www.fab.com/sellers/Space%20Dodo" target="_blank">View My Fab Store</a>
+  <div class="gif-row" style="margin-top: 2rem;">
+    <img src="photos/plugin1.gif" alt="Plugin 1">
+    <img src="photos/plugin2.gif" alt="Plugin 2">
+    <img src="photos/plugin3.gif" alt="Plugin 3">
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Other Countless Projects of Various Shapes and Sizes</div>
+  <div class="carousel">
+    <img src="photos/misc1.gif" alt="Misc Project 1">
+    <img src="photos/misc2.gif" alt="Misc Project 2">
+    <img src="photos/misc3.gif" alt="Misc Project 3">
+    <img src="photos/misc4.gif" alt="Misc Project 4">
+    <img src="photos/misc5.gif" alt="Misc Project 5">
+    <img src="photos/misc6.gif" alt="Misc Project 6">
+    <img src="photos/misc7.gif" alt="Misc Project 7">
+    <img src="photos/misc8.gif" alt="Misc Project 8">
+  </div>
+</section>
+
+</body>
+</html>
