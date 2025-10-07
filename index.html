@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adam Morrell - Developer Portfolio</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="Adam Morrell - Unreal Developer, Full Stack Engineer, and Optimization Specialist with 11 years in IT and 6 years in development. Creator of Vandals, Planta Theta, and plugins sold on Fab.">
+  <meta property="og:title" content="Adam Morrell - Developer Portfolio">
+  <meta property="og:description" content="Unreal Developer • Full Stack • Optimization Specialist">
+  <meta property="og:image" content="photos/me.gif">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts & Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="photos/favicon.png">
+
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
+      background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
       color: #e0e0e0;
       display: flex;
       flex-direction: column;
@@ -31,12 +42,19 @@
     h1 {
       font-size: 2.8rem;
       margin: 0;
+      text-shadow: 0 0 10px rgba(0,255,153,0.2);
     }
 
     h2 {
       color: #00ff99;
       margin-top: 1rem;
       font-size: 1.6rem;
+    }
+
+    p.tagline {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #bbb;
     }
 
     .section-title {
@@ -67,12 +85,20 @@
       gap: 1rem;
     }
 
-    .gif-row img {
+    .gif-row img,
+    .carousel img {
       width: 360px;
       height: 204px;
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gif-row img:hover,
+    .carousel img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
     }
 
     .plugin-link {
@@ -89,6 +115,10 @@
 
     .plugin-link:hover {
       background: #00cc80;
+    }
+
+    .carousel-container {
+      position: relative;
     }
 
     .carousel {
@@ -116,6 +146,20 @@
       flex-shrink: 0;
     }
 
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #00ff99;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      user-select: none;
+    }
+
+    .carousel-arrow.left { left: 0; }
+    .carousel-arrow.right { right: 0; }
+
     @media (max-width: 700px) {
       .gif-row img {
         width: 100%;
@@ -135,18 +179,17 @@
   <div>
     <h1>Adam Morrell</h1>
     <h2>Unreal Developer • Full Stack • Optimization Specialist</h2>
-    <p>11 years in IT · 6 in Development · Unreal Engine · C++ & C# · Plugins · Desktop/Mobile/Oculus </p>
+    <p class="tagline">Building performant, beautiful systems from blueprint to backend.</p>
+    <p>11 years in IT · 6 in Development · Unreal Engine · C++ & C# · Plugins · Desktop/Mobile/Oculus</p>
   </div>
-  <img src="photos/me.gif" alt="Adam Morrell" style="margin-top: 1rem; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #00ff99;">
+  <img src="photos/me.gif" alt="Portrait of Adam Morrell" style="margin-top: 1rem; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #00ff99;">
 </header>
 
 <section class="section">
   <div style="margin-top: -2rem;">
     <p style="font-size: 1.1rem;">
       Contact Me:
-      <a href="https://www.linkedin.com/in/adam-morrell-91302a78" target="_blank" style="color: #00ff99; text-decoration: none; font-weight: 600;">
-        LinkedIn
-      </a>
+      <a href="https://www.linkedin.com/in/adam-morrell-91302a78" target="_blank" style="color: #00ff99; text-decoration: none; font-weight: 600;">LinkedIn</a>
     </p>
   </div>
 </section>
@@ -155,13 +198,22 @@
   <div class="section-title">Highlight Projects</div>
 
   <div class="project">
-    <div class="project-title">Vandals (Lead Developer)</div>
+    <div class="project-title">Ages of Cataria (Systems Developer and Lead for MVP)</div>
     <p class="project-desc">
-      A Quest VR 10-chapter interactive story built for academic research. I built the quest manager and tightly optimized it for standalone VR.
+      I built the primary systems in the MVP. This includes AI scheduling, village tasks, saving, dynamic meshes and colors, and more for the game’s demo.
     </p>
     <div class="gif-row">
-      <img src="photos/vandals1.gif" alt="Vandals GIF 1">
-      <img src="photos/vandals2.gif" alt="Vandals GIF 2">
+      <img src="photos/cataria1.gif" alt="AI task system in Ages of Cataria" loading="lazy">
+      <img src="photos/cataria2.gif" alt="Simulation debugging for Ages of Cataria" loading="lazy">
+
+  <div class="project">
+    <div class="project-title">Vandals (Lead Developer)</div>
+    <p class="project-desc">
+      A Quest VR 10-chapter interactive story built for academic research. I built the quest manager and tightly optimized it for standalone VR among other task.
+    </p>
+    <div class="gif-row">
+      <img src="photos/vandals1.gif" alt="Gameplay from Vandals VR Project" loading="lazy">
+      <img src="photos/vandals2.gif" alt="Performance testing of Vandals VR" loading="lazy">
     </div>
   </div>
 
@@ -171,19 +223,11 @@
       Fully-featured VR dating app (App Labs-ready). Delivered on time, packed with systems. Though unreleased by our partners, our dev work was a win.
     </p>
     <div class="gif-row">
-      <img src="photos/planta1.gif" alt="Planta Theta GIF 1">
-      <img src="photos/planta2.gif" alt="Planta Theta GIF 2">
+      <img src="photos/planta1.gif" alt="Planta Theta interaction system preview" loading="lazy">
+      <img src="photos/planta2.gif" alt="VR world design in Planta Theta" loading="lazy">
     </div>
   </div>
 
-  <div class="project">
-    <div class="project-title">Ages of Cataria (Systems Developer)</div>
-    <p class="project-desc">
-      Built core simulation logic post-Kickstarter. Designed AI scheduling, village tasks, and deep system interconnects for the game’s demo.
-    </p>
-    <div class="gif-row">
-      <img src="photos/cataria1.gif" alt="Ages of Cataria GIF 1">
-      <img src="photos/cataria2.gif" alt="Ages of Cataria GIF 2">
     </div>
   </div>
 </section>
@@ -193,25 +237,36 @@
   <p>Hand-built tools to boost productivity and engine power. Trusted by developers, shipped via Fab.</p>
   <a class="plugin-link" href="https://www.fab.com/sellers/Space%20Dodo" target="_blank">View My Fab Store</a>
   <div class="gif-row" style="margin-top: 2rem;">
-    <img src="photos/plugin1.gif" alt="Plugin 1">
-    <img src="photos/plugin2.gif" alt="Plugin 2">
-    <img src="photos/plugin3.gif" alt="Plugin 3">
+    <img src="photos/plugin1.gif" alt="Plugin demonstration 1" loading="lazy">
+    <img src="photos/plugin2.gif" alt="Plugin demonstration 2" loading="lazy">
   </div>
 </section>
 
 <section class="section">
   <div class="section-title">Other Countless Projects of Various Shapes and Sizes</div>
-  <div class="carousel">
-    <img src="photos/misc1.gif" alt="Misc Project 1">
-    <img src="photos/misc2.gif" alt="Misc Project 2">
-    <img src="photos/misc3.gif" alt="Misc Project 3">
-    <img src="photos/misc4.gif" alt="Misc Project 4">
-    <img src="photos/misc5.gif" alt="Misc Project 5">
-    <img src="photos/misc6.gif" alt="Misc Project 6">
-    <img src="photos/misc7.gif" alt="Misc Project 7">
-    <img src="photos/misc8.gif" alt="Misc Project 8">
+  <div class="carousel-container">
+    <span class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</span>
+    <div class="carousel" id="carousel">
+      <img src="photos/misc1.gif" alt="Misc Project 1" loading="lazy">
+      <img src="photos/misc2.gif" alt="Misc Project 2" loading="lazy">
+      <img src="photos/misc3.gif" alt="Misc Project 3" loading="lazy">
+      <img src="photos/misc4.gif" alt="Misc Project 4" loading="lazy">
+      <img src="photos/misc5.gif" alt="Misc Project 5" loading="lazy">
+      <img src="photos/misc6.gif" alt="Misc Project 6" loading="lazy">
+      <img src="photos/misc7.gif" alt="Misc Project 7" loading="lazy">	
+      <img src="photos/misc8.gif" alt="Misc Project 8" loading="lazy">
+    </div>
+    <span class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</span>
   </div>
 </section>
+
+<script>
+  function scrollCarousel(direction) {
+    const carousel = document.getElementById('carousel');
+    const scrollAmount = 300 * direction;
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
