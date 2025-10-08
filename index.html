@@ -6,7 +6,7 @@
   <title>Adam Morrell - Developer Portfolio</title>
 
   <!-- SEO & Social -->
-  <meta name="description" content="Adam Morrell - Unreal Developer, Full Stack Engineer, and Optimization Specialist with 11 years in IT and 6 years in development. Creator of Vandals, Planta Theta, and plugins sold on Fab.">
+  <meta name="description" content="Adam Morrell - Unreal Developer, Full Stack Engineer, and Optimization Specialist with 11 years in IT and 6 years in development. Creator of Vandals, Planet Theta, and plugins sold on Fab.">
   <meta property="og:title" content="Adam Morrell - Developer Portfolio">
   <meta property="og:description" content="Unreal Developer • Full Stack • Optimization Specialist">
   <meta property="og:image" content="photos/me.gif">
@@ -63,7 +63,7 @@
       margin-bottom: 2rem;
     }
 
-    .project {
+    .project-block {
       margin-bottom: 3rem;
     }
 
@@ -82,25 +82,83 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
     }
 
-    .gif-row img,
-    .carousel img {
+    /* === Overlay styling === */
+    .gif-overlay {
+      position: relative;
+      display: inline-block;
       width: 360px;
       height: 204px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .gif-overlay img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .gif-row img:hover,
-    .carousel img:hover {
+    .gif-overlay:hover {
       transform: scale(1.03);
       box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
     }
 
+    .overlay-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 0.4rem 0.5rem;
+      border-radius: 0 0 10px 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .gif-overlay:hover .overlay-text {
+      opacity: 1;
+      text-shadow: 0 0 8px #00ff99;
+    }
+
+    /* === Dropdown descriptions === */
+    .gif-description {
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      background-color: rgba(0, 255, 153, 0.05);
+      color: #ccc;
+      border-left: 2px solid #00ff99;
+      border-radius: 0 8px 8px 0;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      width: 100%;
+    }
+
+    .gif-description.open {
+      display: block;
+    }
+
+    .gif-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 360px;
+    }
+
+    /* === Plugin button etc === */
     .plugin-link {
       display: inline-block;
       margin-top: 1rem;
@@ -117,6 +175,7 @@
       background: #00cc80;
     }
 
+    /* === Carousel === */
     .carousel-container {
       position: relative;
     }
@@ -138,12 +197,18 @@
       border-radius: 4px;
     }
 
-    .carousel img {
-      width: 240px;
-      height: 144px;
-      object-fit: cover;
-      border-radius: 8px;
+    .carousel .gif-overlay {
+      width: 360px;
+      height: 204px;
       flex-shrink: 0;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
     }
 
     .carousel-arrow {
@@ -161,112 +226,232 @@
     .carousel-arrow.right { right: 0; }
 
     @media (max-width: 700px) {
-      .gif-row img {
+      .gif-overlay, .carousel .gif-overlay {
         width: 100%;
         height: auto;
       }
-
       .carousel img {
-        height: 100px;
-        width: auto;
+        height: auto;
+        width: 100%;
       }
     }
   </style>
 </head>
-<body>
 
-<header style="text-align: center;">
-  <div>
+<body>
+  <header>
     <h1>Adam Morrell</h1>
     <h2>Unreal Developer • Full Stack • Optimization Specialist</h2>
     <p class="tagline">Building performant, beautiful systems from blueprint to backend.</p>
     <p>11 years in IT · 6 in Development · Unreal Engine · C++ & C# · Plugins · Desktop/Mobile/Oculus</p>
-  </div>
-  <img src="photos/me.gif" alt="Portrait of Adam Morrell" style="margin-top: 1rem; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #00ff99;">
-</header>
+    <img src="photos/me.gif" alt="Portrait of Adam Morrell" style="margin-top: 1rem; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #00ff99;">
+  </header>
 
-<section class="section">
-  <div style="margin-top: -2rem;">
-    <p style="font-size: 1.1rem;">
-      Contact Me:
+  <section class="section">
+    <p>Contact Me: 
       <a href="https://www.linkedin.com/in/adam-morrell-91302a78" target="_blank" style="color: #00ff99; text-decoration: none; font-weight: 600;">LinkedIn</a>
     </p>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="section-title">Highlight Projects</div>
+  <section class="section">
+    <div class="section-title">Highlight Projects</div>
 
-  <div class="project">
-    <div class="project-title">Ages of Cataria (Systems Developer and Lead for MVP)</div>
-    <p class="project-desc">
-      I built the primary systems in the MVP. This includes AI scheduling, village tasks, saving, dynamic meshes and colors, and more for the game’s demo.
-    </p>
-    <div class="gif-row">
-      <img src="photos/cataria1.gif" alt="AI task system in Ages of Cataria" loading="lazy">
-      <img src="photos/cataria2.gif" alt="Simulation debugging for Ages of Cataria" loading="lazy">
-
-  <div class="project">
-    <div class="project-title">Vandals (Lead Developer)</div>
-    <p class="project-desc">
-      A Quest VR 10-chapter interactive story built for academic research. I built the quest manager and tightly optimized it for standalone VR among other task.
-    </p>
-    <div class="gif-row">
-      <img src="photos/vandals1.gif" alt="Gameplay from Vandals VR Project" loading="lazy">
-      <img src="photos/vandals2.gif" alt="Performance testing of Vandals VR" loading="lazy">
+    <!-- Project 1 -->
+    <div class="project-block">
+      <div class="project-title">Ages of Cataria (Systems Developer and Lead for MVP)</div>
+      <p class="project-desc">Built AI scheduling, villager tasks, saving, dynamic meshes, and more for the demo.</p>
+      <div class="gif-row">
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/cataria1.gif" alt="AI task system" loading="lazy">
+            <div class="overlay-text">AI task system preview</div>
+          </div>
+          <div class="gif-description">
+            I created the underlying systems that let the MVP work. Here you can see villager waiting in line for the rest room. Also the first test of building placement.
+          </div>
+        </div>
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/cataria2.gif" alt="Dynamic Navigation Debug" loading="lazy">
+            <div class="overlay-text">Dynamic Navigation</div>
+          </div>
+          <div class="gif-description">
+            This was a test using dynamic nav meshes with invokers. The player can select harvestable items across the map. I also built the system that lets the villagers decide what task they should do, and let the player interrupt it.
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="project">
-    <div class="project-title">Planta Theta (Lead Developer)</div>
-    <p class="project-desc">
-      Fully-featured VR dating app (App Labs-ready). Delivered on time, packed with systems. Though unreleased by our partners, our dev work was a win.
-    </p>
-    <div class="gif-row">
-      <img src="photos/planta1.gif" alt="Planta Theta interaction system preview" loading="lazy">
-      <img src="photos/planta2.gif" alt="VR world design in Planta Theta" loading="lazy">
+    <!-- Project 2 -->
+    <div class="project-block">
+      <div class="project-title">Vandals (Lead Developer)</div>
+      <p class="project-desc">A Quest VR 10-chapter interactive story optimized for standalone VR.</p>
+      <div class="gif-row">
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/vandals1.gif" alt="Vandals gameplay" loading="lazy">
+            <div class="overlay-text">Gameplay preview</div>
+          </div>
+          <div class="gif-description">
+            It was one of the first apps to use Oculus Hands and Gestures. You could wave to NPCs to start conversations. I built a custom mission manager to deal with the branching paths. I handled a lot of the optimization for Quest.
+          </div>
+        </div>
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/vandals2.gif" alt="Grabbing with Oculus Hands" loading="lazy">
+            <div class="overlay-text">Grabbing with Oculus Hands</div>
+          </div>
+          <div class="gif-description">
+           This was a mini game segment with an interactive marker board you could draw on and move magnets. Your robot buddy is explaining the task.
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <!-- Project 3 -->
+    <div class="project-block">
+      <div class="project-title">Planet Theta (Lead Developer)</div>
+      <p class="project-desc">A fully-featured VR dating app built for Oculus Quest 2.</p>
+      <div class="gif-row">
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/planta1.gif" alt="Planet Theta" loading="lazy">
+            <div class="overlay-text">Planet Theta</div>
+          </div>
+          <div class="gif-description">
+            At Another Reality Studio I had the opportunity to lead a team to build a VR dating app over a year and a half. It ran on Quest, complete with visemes, dating profiles, and dynamic environments. I'm not sure why the game never shipped, but we had App Lab approval and a working app when we gave it to the client.
+          </div>
+        </div>
+        <div class="gif-wrapper">
+          <div class="gif-overlay">
+            <img src="photos/planta2.gif" alt="In World VR Menu" loading="lazy">
+            <div class="overlay-text">In World VR Menu</div>
+          </div>
+          <div class="gif-description">
+            I'm on the left. We are demonstrating the app (this was an early PC VR version). It used ready player me avatars. We had to create dating profiles that populated from a backend.
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="section-title">Plugins</div>
-  <p>Hand-built tools to boost productivity and engine power. Trusted by developers, shipped via Fab.</p>
-  <a class="plugin-link" href="https://www.fab.com/sellers/Space%20Dodo" target="_blank">View My Fab Store</a>
-  <div class="gif-row" style="margin-top: 2rem;">
-    <img src="photos/plugin1.gif" alt="Plugin demonstration 1" loading="lazy">
-    <img src="photos/plugin2.gif" alt="Plugin demonstration 2" loading="lazy">
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-title">Other Countless Projects of Various Shapes and Sizes</div>
-  <div class="carousel-container">
-    <span class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</span>
-    <div class="carousel" id="carousel">
-      <img src="photos/misc1.gif" alt="Misc Project 1" loading="lazy">
-      <img src="photos/misc2.gif" alt="Misc Project 2" loading="lazy">
-      <img src="photos/misc3.gif" alt="Misc Project 3" loading="lazy">
-      <img src="photos/misc4.gif" alt="Misc Project 4" loading="lazy">
-      <img src="photos/misc5.gif" alt="Misc Project 5" loading="lazy">
-      <img src="photos/misc6.gif" alt="Misc Project 6" loading="lazy">
-      <img src="photos/misc7.gif" alt="Misc Project 7" loading="lazy">	
-      <img src="photos/misc8.gif" alt="Misc Project 8" loading="lazy">
+  <section class="section">
+    <div class="section-title">Unreal Plugins</div>
+    <p>I built a few custom plugins on the asset store. Check them out!</p>
+    <a class="plugin-link" href="https://www.fab.com/sellers/Space%20Dodo" target="_blank">View My Fab Store</a>
+    <div class="gif-row" style="margin-top: 2rem;">
+      <div class="gif-wrapper">
+        <div class="gif-overlay">
+          <img src="photos/plugin1.gif" alt="Plugin demo 1" loading="lazy">
+          <div class="overlay-text">User Weather</div>
+        </div>
+        <div class="gif-description">
+          This is an API wrapper for 5 different weather APIs to work in the Unreal Engine. They all sort the various API response into a synthesized workflow, so you can switch between them if you change your weather API provider.
+        </div>
+      </div>
+      <div class="gif-wrapper">
+        <div class="gif-overlay">
+          <img src="photos/plugin2.gif" alt="MetaSounds Starter Pack" loading="lazy">
+          <div class="overlay-text">MetaSounds Starter Pack</div>
+        </div>
+        <div class="gif-description">
+          This is a whole example library of meta sounds all synthesized in game. The demo project also includes a platformer where everything flashes and bounces with the tempo of the music you can change dynamically
+        </div>
+      </div>
     </div>
-    <span class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</span>
-  </div>
-</section>
+  </section>
 
-<script>
-  function scrollCarousel(direction) {
-    const carousel = document.getElementById('carousel');
-    const scrollAmount = 300 * direction;
-    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  }
-</script>
+  <section class="section">
+    <div class="section-title">Other Projects</div>
+    <div class="carousel-container">
+      <span class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</span>
+      <div class="carousel" id="carousel">
+        <div class="gif-overlay" data-description="This was a POC to view styles and estimate cost of astroturf with an AR app.">
+          <img src="photos/misc1.gif">
+          <div class="overlay-text">AR Lawn</div>
+        </div>
+        <div class="gif-overlay" data-description="This is a mystery game I made where anything is a potential clue. You interview NPCs with photos of people and things you find.">
+          <img src="photos/misc2.gif">
+          <div class="overlay-text">Photo Investigator</div>
+        </div>
+        <div class="gif-overlay" data-description="I made this for a GMTK game jam as a solo dev. Participants had 3 days.">
+          <img src="photos/misc3.gif">
+          <div class="overlay-text">Deal me in</div>
+        </div>
+        <div class="gif-overlay" data-description="Years ago I challenged myself to make a batting practice sim in 3 days. I think I could do it in 1 now. This still gets downloads on itch. It's for Oculus Touch.">
+          <img src="photos/misc4.gif">
+          <div class="overlay-text">Batting Practice VR</div>
+        </div>
+        <div class="gif-overlay" data-description="A VR Game made for Oculus Touch. It's a great Axe Throwing Sim.">
+          <img src="photos/misc5.gif">
+          <div class="overlay-text">Axe Me VR</div>
+        </div>
+        <div class="gif-overlay" data-description="While working at Another Reality Studio, we built photoreal AR. Getting the dynamic shadows to work in AR was the trick. I was responsible for the AR parts of the project, including the lighting and shadows.">
+          <img src="photos/misc6.gif">
+          <div class="overlay-text">AR Dinos</div>
+        </div>
+        <div class="gif-overlay" data-description="While working at Another Reality Studio, I got to lead this project. It was a huge showcase of doors and windows. We would match real world space to the attractions. I was responsible for the level loading system matching the real world space. I also built part of this attraction and more. We had this on android and apple devices.">
+          <img src="photos/misc7.gif">
+          <div class="overlay-text">XR Window</div>
+        </div>
+        <div class="gif-overlay" data-description="This is a mobile companion app that would give contextual conversations based on what had happened in the main game. They shared a backend.">
+          <img src="photos/misc8.gif">
+          <div class="overlay-text">Conversation Game</div>
+        </div>
+      </div>
+      <span class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</span>
+    </div>
+    <div id="carousel-description" class="gif-description" style="max-width: 740px; margin: 1rem auto 0;"></div>
+  </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      function scrollCarousel(direction) {
+        const carousel = document.getElementById('carousel');
+        carousel.scrollBy({ left: 380 * direction, behavior: 'smooth' });
+      }
+
+      const carouselDesc = document.getElementById('carousel-description');
+      let currentCarouselItem = null;
+
+      // Each GIF toggles its own description
+      document.querySelectorAll('.gif-overlay').forEach(gif => {
+        gif.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          
+          // Check if this is a carousel item
+          const isCarouselItem = gif.closest('.carousel');
+          
+          if (isCarouselItem) {
+            // Handle carousel items with shared description
+            const description = gif.getAttribute('data-description');
+            
+            if (currentCarouselItem === gif) {
+              // Toggle off if clicking the same item
+              carouselDesc.classList.remove('open');
+              carouselDesc.textContent = '';
+              currentCarouselItem = null;
+            } else {
+              // Show description for new item
+              carouselDesc.textContent = description;
+              carouselDesc.classList.add('open');
+              currentCarouselItem = gif;
+            }
+          } else {
+            // Handle regular items with individual descriptions
+            const wrapper = gif.closest('.gif-wrapper');
+            const desc = wrapper ? wrapper.querySelector('.gif-description') : null;
+            if (desc) {
+              desc.classList.toggle('open');
+            }
+          }
+        });
+      });
+
+      // Expose scrollCarousel to global scope for HTML onclick
+      window.scrollCarousel = scrollCarousel;
+    });
+  </script>
 </body>
 </html>
